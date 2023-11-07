@@ -1,0 +1,54 @@
+<div *ngIf="currentUser" class="userDetailContainer">
+
+    <header>
+
+        <button mat-button [matMenuTriggerFor]="menu" class="pin-right-up">
+            <mat-icon class="icon-display">more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="openEditName('1500ms')">
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
+            </button>
+
+            <button mat-menu-item (click)="openAddPic()" (click)="$event.stopPropagation()">
+                <mat-icon>add_a_photo</mat-icon>
+                <span>Add a profile picture</span>
+            </button>
+            <div *ngIf="changePic">
+                <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+                <input hidden (change)="onFileSelected($event)" #fileInput type="file">
+                <span class="file-name">{{selectedFile?.name}}</span>
+            </div>
+
+        </mat-menu>
+        <img *ngIf="currentUser.profilePic" class="profile" src={{currentUser.profilePic}}>
+        <img *ngIf="!currentUser.profilePic" class="profileDefault" src="assets/img/profile.png">
+        <mat-card-subtitle>{{currentUser.firstName}} {{currentUser.lastName}}</mat-card-subtitle>
+    </header>
+    <mat-card>
+        <mat-card-content>
+
+            <button mat-button [matMenuTriggerFor]="menuAdress" class="pin-right-up">
+                <mat-icon class="icon-display">more_vert</mat-icon>
+            </button>
+            <mat-menu #menuAdress="matMenu">
+                <button mat-menu-item (click)="openEditAdress('1500ms')">
+                    <mat-icon>edit</mat-icon>
+                    <span>Edit</span>
+                </button>
+            </mat-menu>
+
+            <mat-card-title>E-Mail</mat-card-title>
+            <mat-card-subtitle>{{currentUser.email}}</mat-card-subtitle>
+            <mat-card-title>Birthday</mat-card-title>
+            <mat-card-subtitle>{{currentUser.birthDate}}</mat-card-subtitle>
+            <mat-card-title>Street</mat-card-title>
+            <mat-card-subtitle>{{currentUser.street}}</mat-card-subtitle>
+            <mat-card-title>ZIP</mat-card-title>
+            <mat-card-subtitle>{{currentUser.ZIP}}</mat-card-subtitle>
+            <mat-card-title>City</mat-card-title>
+            <mat-card-subtitle>{{currentUser.city}}</mat-card-subtitle>
+        </mat-card-content>
+    </mat-card>
+</div>

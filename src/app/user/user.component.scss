@@ -3,3 +3,45 @@
     right: 40px;
     bottom: 40px;
 }
+
+.card {
+    margin: 20px 50px 0
+}
+
+.user-table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+
+    tr {
+        display: flex;
+        justify-content: space-around;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    }
+
+    tr:last-child {
+        border-bottom: 0;
+    }
+
+    th {
+        width: 33.3%;
+        max-width: 33.3%;
+        color: rgba(0, 0, 0, 0.4);
+        font-size: 18px;
+        font-weight: 500;
+        padding: 10px;
+
+    }
+
+    td {
+
+        height: 48px;
+        width: 33.3%;
+        max-width: 33.3%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+}

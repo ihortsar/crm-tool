@@ -1,4 +1,20 @@
-<p>user works!</p>
-<button (click)="openDialog('1500ms', '500ms')" class="addUserButton" mat-fab color="primary"
-    matTooltip="Add user">
+<mat-card class="card">
+<!--     <input type="text" id="search" [ngModel]="searchText" (ngModelChange)="searchUser($event)" placeholder="Find a user"
+        ngModel> -->
+    <table class="user-table">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>City</th>
+        </tr>
+        <tr *ngFor="let user of allUsers" [routerLink]="['/user/'+ user.id]">
+            <td>{{user.firstName}}
+                {{user.lastName}}
+            </td>
+            <td> <a href="mailto:{{user.email}}">{{user.email}}</a></td>
+            <td>{{user.city}}</td>
+        </tr>
+    </table>
+</mat-card>
+<button (click)="openDialog('1500ms')" class="addUserButton" mat-fab color="primary" matTooltip="Add user">
     <mat-icon>add</mat-icon>
